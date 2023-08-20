@@ -1,0 +1,25 @@
+
+import {Component} from 'react'
+import 'index.css'
+class Welcome extends Component {
+  state = {isSub: true}
+  renderSub = () => {
+    const {isSub} = this.state
+    if (isSub === true) {
+      return <button>Subscribed </button>
+      this.setState(prevState => ({isSub: (prevState.isSub = false)}))
+    }
+    return <button>Subscribe</button>
+    this.setState(prevState => ({isSub: (prevState.isSub = true)}))
+  }
+  render() {
+    return (
+      <div className="container">
+        <h1>Welcome</h1>
+        <h1>Thank you! Happy learning</h1>
+        <button onClick={this.renderSub}>Subscribe </button>
+      </div>
+    )
+  }
+}
+export default Welcome
